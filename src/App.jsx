@@ -24,6 +24,10 @@ function App() {
     setFormularioAberto(false)
   }
 
+  function excluirTarefa(id) {
+    setListaDeTarefas(listaDeTarefas.filter(t => t.id !== id))
+  }
+
 return (
   <div>
     <h1>Dashboard</h1>
@@ -51,12 +55,16 @@ return (
 
     {/* "para cada `tarefa` do array listaDeTarefas, cria um `<li>` com o texto e a prioridade dela." */}
     <ul> 
-      {listaDeTarefas.map(tarefa => (
-        <li key={tarefa.id}>{tarefa.texto} - {tarefa.prioridade}</li>
-      ))}
+          {listaDeTarefas.map(tarefa => (
+      <li key={tarefa.id}>
+        {tarefa.texto} - {tarefa.prioridade}
+        <button onClick={() => excluirTarefa(tarefa.id)}>❌</button>
+      </li>
+    ))}
     </ul>
   </div>
 )
 }
 
 export default App
+
