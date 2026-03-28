@@ -40,11 +40,21 @@ function App() {
       }
       return t
     }))
+
+    const tarefa = listaDeTarefas.find(t => t.id === id)
+    if (tarefa.prioridade === "Alta") {
+      setXp(xp + 100)
+    } else if (tarefa.prioridade === "Média") {
+      setXp(xp + 50)
+    } else {
+      setXp(xp + 25)
+    }
   }
 
 return (
   <div>
     <h1>Dashboard</h1>
+    <p>XP: {xp}</p>
 
     <button onClick={() => setFormularioAberto(true)}>Nova Tarefa</button>
 
