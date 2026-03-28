@@ -3,7 +3,7 @@ import { useState } from "react"
 function App() {
 
   // useState: variável que quando muda, atualiza a tela automaticamente
-  // [valor, função que muda o valor] = useState(valor inicial)
+  // jeito de escrever => [valor, função que muda o valor] = useState(valor inicial)
   const [listaDeTarefas, setListaDeTarefas] = useState([])
   const [idTarefa, setIdTarefa] = useState(0)
   const [xp, setXp] = useState(0)
@@ -14,10 +14,15 @@ function App() {
   function adicionarTarefa() {
     if (inputTexto === "") return
 
-    const novaTarefa = { id: idTarefa, texto: inputTexto, concluida: false, prioridade: prioridade }
+    const novaTarefa = { 
+      id: idTarefa,
+      texto: inputTexto,
+      concluida: false,
+      prioridade: prioridade
+    }
 
     // spread (...): copia tudo da lista antiga([]) + adiciona a nova tarefa
-    // nunca modificamos a lista diretamente, sempre criamos uma nova
+    // pois nunca modificamos a lista diretamente, sempre criamos uma nova
     setListaDeTarefas([...listaDeTarefas, novaTarefa])
     setIdTarefa(idTarefa + 1)
     setInputTexto("")
@@ -26,6 +31,15 @@ function App() {
 
   function excluirTarefa(id) {
     setListaDeTarefas(listaDeTarefas.filter(t => t.id !== id))
+  }
+
+  function concluirTarefa(id) {
+    setListaDeTarefas(listaDeTarefas.map(t => {
+      if (t.id === id) {
+        return { ...t, concluida: true}
+      }
+      return t
+    }))
   }
 
 return (
@@ -55,16 +69,16 @@ return (
 
     {/* "para cada `tarefa` do array listaDeTarefas, cria um `<li>` com o texto e a prioridade dela." */}
     <ul> 
-          {listaDeTarefas.map(tarefa => (
-      <li key={tarefa.id}>
-        {tarefa.texto} - {tarefa.prioridade}
-        <button onClick={() => excluirTarefa(tarefa.id)}>❌</button>
-      </li>
-    ))}
+        {listaDeTarefas.map(tarefa => (
+          <li key = {tarefa.id}>
+            {<span style={{ textDecoration: tarefa.concluida ? "line-through" : "none", opacity: tarefa.concluida ? "0.6" : "1" }}>{tarefa.texto}</span>} - {tarefa.prioridade}
+            <button onClick={() => excluirTarefa(tarefa.id)}>❌</button>
+            <button onClick={() => concluirTarefa(tarefa.id)}>✅</button>
+          </li>
+        ))}
     </ul>
   </div>
 )
 }
 
 export default App
-
