@@ -46,7 +46,7 @@ O nível do usuário aumenta conforme o XP acumulado.
 
 ## 📸 Demonstração
 
-![preview do projeto](./preview.jpeg)
+![preview do projeto](./preview.png)
 
 ## 📌 Objetivo do Projeto
 
