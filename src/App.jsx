@@ -128,7 +128,7 @@ return (
             {tarefa.prioridade === "Alta" ? "🔴" : tarefa.prioridade === "Média" ? "🟠" : "🟡"} {tarefa.texto}
           </span>
           <button onClick={() => excluirTarefa(tarefa.id)}>❌</button>
-          <button onClick={() => concluirTarefa(tarefa.id)}>✅</button>
+          <button onClick={() => concluirTarefa(tarefa.id)} disabled={tarefa.concluida}>✅</button>
         </li>
       ))}
     </ul>
