@@ -63,11 +63,27 @@ function App() {
     }
   }
 
+  function calcularPorcentagem() {
+    const { nivel, xpAcumulado } = calcularNivel(xp)
+    const xpNecessario = 200 * Math.pow(1.5, nivel - 1)
+    const xpNoNivelAtual = xp - xpAcumulado
+    return (xpNoNivelAtual / xpNecessario) * 100
+  }
+
 return (
   <div>
     <h1>Dashboard</h1>
     <p>Nível: {calcularNivel(xp).nivel}</p>
     <p>XP: {xp}</p>
+    <div style={{ width: "100%", background: "#333", borderRadius: "8px", height: "12px" }}>
+    <div style={{ 
+      width: calcularPorcentagem() + "%",
+      background: "green", 
+      height: "12px",
+      borderRadius: "8px"
+    }}>
+    </div>
+    </div>
 
     <button onClick={() => setFormularioAberto(true)}>Nova Tarefa</button>
 
