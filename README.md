@@ -37,10 +37,6 @@ O nível do usuário aumenta conforme o XP acumulado.
 
 ![preview do projeto](./preview.png)
 
-## 🔗 Demo
-
-https://e-danillon.github.io/dashboard-de-tarefas-gamificado-react/
-
 ## 📌 Objetivo do Projeto
 
 Este projeto foi desenvolvido com o objetivo de praticar:
