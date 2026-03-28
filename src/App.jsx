@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import './App.css'
 
 
@@ -6,12 +6,30 @@ function App() {
 
   // useState: variável que quando muda, atualiza a tela automaticamente
   // jeito de escrever => [valor, função que muda o valor] = useState(valor inicial)
-  const [listaDeTarefas, setListaDeTarefas] = useState([])
-  const [idTarefa, setIdTarefa] = useState(0)
-  const [xp, setXp] = useState(0)
   const [inputTexto, setInputTexto] = useState('')
   const [prioridade, setPrioridade] = useState('Alta')
   const [formularioAberto, setFormularioAberto] = useState(false)
+
+const [listaDeTarefas, setListaDeTarefas] = useState(() => {
+  const salvo = localStorage.getItem("listaDeTarefas")
+  return salvo ? JSON.parse(salvo) : []
+})
+
+const [idTarefa, setIdTarefa] = useState(() => {
+  const salvo = localStorage.getItem("idTarefa")
+  return salvo ? JSON.parse(salvo) : 0
+})
+
+const [xp, setXp] = useState(() => {
+  const salvo = localStorage.getItem("xp")
+  return salvo ? JSON.parse(salvo) : 0
+})
+
+useEffect(() => {
+  localStorage.setItem("xp", JSON.stringify(xp))
+  localStorage.setItem("listaDeTarefas", JSON.stringify(listaDeTarefas))
+  localStorage.setItem("idTarefa", JSON.stringify(idTarefa))
+}, [listaDeTarefas, xp, idTarefa])
 
   function calcularNivel(xp) {
     let nivel = 1
