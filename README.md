@@ -7,7 +7,6 @@ O usuário pode criar tarefas, definir prioridades e ganhar XP ao concluí-las, 
 
 - Criar tarefas
 - Definir prioridade (Alta, Média, Baixa)
-- Editar tarefas
 - Excluir tarefas
 - Marcar tarefas como concluídas
 - Sistema de XP baseado na dificuldade da tarefa
@@ -30,36 +29,29 @@ O nível do usuário aumenta conforme o XP acumulado.
 
 ## 🛠️ Tecnologias Utilizadas
 
-- HTML5
+- React
 - CSS3
-- JavaScript
 - LocalStorage
-
-## 📂 Estrutura do Projeto
-│
-├── index.html
-├── style.css
-├── script.js
-├── xp.js
-└── README.md
-
 
 ## 📸 Demonstração
 
 ![preview do projeto](./preview.png)
 
+## 🔗 Demo
+
+https://e-danillon.github.io/dashboard-de-tarefas-gamificado-react/
+
 ## 📌 Objetivo do Projeto
 
 Este projeto foi desenvolvido com o objetivo de praticar:
 
-- Manipulação de DOM
-- Organização de lógica em JavaScript
-- Estruturação de projetos front-end
+- Componentização com React
+- Gerenciamento de estado com useState e useEffect
 - Persistência de dados no navegador
+- Organização de lógica em aplicações front-end
 
 ## 👨‍💻 Autor
 
 **Emerson Danillo**  
-Estudante de Ciência da Computação
-
-GitHub: https://github.com/E-Danillo
+Estudante de Ciência da Computação  
+GitHub: https://github.com/E-Danillon
