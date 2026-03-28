@@ -11,6 +11,18 @@ function App() {
   const [prioridade, setPrioridade] = useState('Alta')
   const [formularioAberto, setFormularioAberto] = useState(false)
 
+  function calcularNivel(xp) {
+    let nivel = 1
+    let xpAcumulado = 0
+    while (true) {
+        let xpNecessario = 200 * Math.pow(1.5, nivel - 1)
+        if (xp < xpAcumulado + xpNecessario) break
+        xpAcumulado += xpNecessario
+        nivel++
+    }
+    return { nivel, xpAcumulado }
+  }
+
   function adicionarTarefa() {
     if (inputTexto === "") return
 
@@ -54,6 +66,7 @@ function App() {
 return (
   <div>
     <h1>Dashboard</h1>
+    <p>Nível: {calcularNivel(xp).nivel}</p>
     <p>XP: {xp}</p>
 
     <button onClick={() => setFormularioAberto(true)}>Nova Tarefa</button>
