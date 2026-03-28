@@ -1,16 +1,65 @@
-# React + Vite
+# 🕹️ Dashboard de Tarefas Gamificado
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web de gerenciamento de tarefas com sistema de gamificação.  
+O usuário pode criar tarefas, definir prioridades e ganhar XP ao concluí-las, evoluindo de nível conforme progride.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Criar tarefas
+- Definir prioridade (Alta, Média, Baixa)
+- Editar tarefas
+- Excluir tarefas
+- Marcar tarefas como concluídas
+- Sistema de XP baseado na dificuldade da tarefa
+- Sistema de níveis
+- Barra de progresso de XP
+- Ordenação automática por prioridade
+- Persistência de dados usando **LocalStorage**
 
-## React Compiler
+## 🎮 Sistema de Gamificação
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Cada tarefa concede XP de acordo com sua prioridade:
 
-## Expanding the ESLint configuration
+| Prioridade | XP |
+|------------|----|
+| 🔴 Alta | 100 XP |
+| 🟠 Média | 50 XP |
+| 🟡 Baixa | 25 XP |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+O nível do usuário aumenta conforme o XP acumulado.
+
+## 🛠️ Tecnologias Utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
+- LocalStorage
+
+## 📂 Estrutura do Projeto
+│
+├── index.html
+├── style.css
+├── script.js
+├── xp.js
+└── README.md
+
+
+## 📸 Demonstração
+
+![preview do projeto](./preview.jpeg)
+
+## 📌 Objetivo do Projeto
+
+Este projeto foi desenvolvido com o objetivo de praticar:
+
+- Manipulação de DOM
+- Organização de lógica em JavaScript
+- Estruturação de projetos front-end
+- Persistência de dados no navegador
+
+## 👨‍💻 Autor
+
+**Emerson Danillo**  
+Estudante de Ciência da Computação
+
+GitHub: https://github.com/E-Danillo
