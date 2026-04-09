@@ -135,7 +135,7 @@ function App() {
   }
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", gap: "40px" }}>
       <div id="div-principal">
         <h1>Dashboard</h1>
 
@@ -187,12 +187,12 @@ function App() {
       </div>
 
       <div id="container_conquistas">
+        <h2>🏆 Conquistas</h2>
         <ul id="conquistas">
           {conquistas.map(c => (
-            <li key={c.id} style={{ color: c.desbloqueada ? "green" : "#888" }}>
-              🏆 {c.nome}
+            <li key={c.id} className={c.desbloqueada ? "desbloqueada" : ""}>
+              {c.desbloqueada ? "🏆" : "🔒"} {c.nome}
               <p style={{ fontSize: "12px" }}>{c.descricao}</p>
-
               {c.id === 1 && !c.desbloqueada && (
                 <p style={{ fontSize: "12px" }}>
                   {totalAltasConcluidas}/10 concluídas
