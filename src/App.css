@@ -32,22 +32,6 @@ body {
 }
 
 #container_conquistas {
-    position: absolute;     /* sai do fluxo do body */
-    top: 50px;        
-    left: 50%;              /* começa no centro da tela */
-    transform: translateX(550px); 
-    width: 250px;
-    background: rgba(255,255,255,0.05);
-    border: 2px solid #7c3aed;
-    border-radius: 16px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style: none;
-}
-
-#container_conquistas {
     width: 250px;
     background: rgba(255,255,255,0.05);
     border: 2px solid #7c3aed;
@@ -58,7 +42,7 @@ body {
     align-items: center;
     list-style: none;
     align-self: flex-start;
-    margin-top: 48px;
+    margin-left: 70px;
 }
 
 #conquistas li {
