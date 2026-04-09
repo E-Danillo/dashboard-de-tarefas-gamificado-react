@@ -47,12 +47,22 @@ body {
     list-style: none;
 }
 
-/* Lista de conquistas */
-#conquistas {
-    width: 100%;
+#container_conquistas {
+    width: 250px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid #7c3aed;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    align-self: flex-start;
+    margin-top: 48px;
 }
 
 #conquistas li {
+    list-style: none;
     background: #1e1b3a;
     border: 1px solid #3b3270;
     border-radius: 8px;
