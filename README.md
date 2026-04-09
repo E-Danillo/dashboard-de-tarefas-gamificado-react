@@ -50,4 +50,4 @@ Este projeto foi desenvolvido com o objetivo de praticar:
 
 **Emerson Danillo**  
 Estudante de Ciência da Computação  
-GitHub: https://github.com/E-Danillon
+GitHub: https://github.com/E-Danillo
