@@ -19,6 +19,11 @@ body {
   gap: 40px;
 }
 
+#div-main {
+    display: flex;
+    gap: 40px;
+}
+
 #div-principal {
     position: relative; /* mantém fluxo normal */
     margin: 0 auto;     /* centraliza horizontalmente */
@@ -265,6 +270,10 @@ select:hover {
     align-items: center;
     padding: 20px 10px;
     gap: 20px;
+  }
+
+  #div-main {
+    flex-direction: column;
   }
 
   #div-principal {

@@ -154,7 +154,7 @@ function App() {
   }
 
   return (
-    <div style={{ display: "flex", gap: "40px" }}>
+    <div id="div-main">
       <div id="div-principal">
         <h1>Dashboard</h1>
 
