@@ -257,3 +257,67 @@ select:hover {
     background: #1b2d2b;
     color: #34d399;
 }
+
+/* 📱 Responsividade básica */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  #div-principal {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  #container_conquistas {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  #input,
+  select {
+    width: 100%;
+  }
+
+  #lista_de_tarefas {
+    max-width: 100%;
+  }
+
+  #barra_nivel {
+    max-width: 100%;
+  }
+}
+
+/* 📱 Celulares menores ainda */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #lista_de_tarefas li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #lista_de_tarefas li span {
+    width: 100%;
+  }
+
+  #lista_de_tarefas li button {
+    width: 100%;
+  }
+
+  #botoes-formulario {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #botoes-formulario button {
+    width: 100%;
+  }
+}
