@@ -6,6 +6,8 @@ function App() {
   const [inputTexto, setInputTexto] = useState('')
   const [prioridade, setPrioridade] = useState('Alta')
   const [formularioAberto, setFormularioAberto] = useState(false)
+  const [editandoId, setEditandoId] = useState(null)
+  const [textoEditado, setTextoEditado] = useState("")
 
   const [conquistas, setConquistas] = useState(() => {
     const salvo = localStorage.getItem("conquistas")
@@ -73,6 +75,23 @@ function App() {
     setIdTarefa(idTarefa + 1)
     setInputTexto("")
     setFormularioAberto(false)
+  }
+
+  function iniciarEdicao(tarefa) {
+    setEditandoId(tarefa.id)
+    setTextoEditado(tarefa.texto)
+  }
+
+  function salvarEdicao(id) {
+    if (textoEditado.trim() === "") return
+
+    const novaLista = listaDeTarefas.map(t =>
+      t.id === id ? { ...t, texto: textoEditado } : t
+    )
+
+    setListaDeTarefas(novaLista)
+    setEditandoId(null)
+    setTextoEditado("")
   }
 
   function excluirTarefa(id) {
@@ -172,16 +191,34 @@ function App() {
         <ul id="lista_de_tarefas">
           {listaDeTarefas.map(tarefa => (
             <li key={tarefa.id}>
-              <span style={{
-                textDecoration: tarefa.concluida ? "line-through" : "none",
-                opacity: tarefa.concluida ? "0.6" : "1"
-              }}>
-                {tarefa.prioridade === "Alta" ? "🔴" : tarefa.prioridade === "Média" ? "🟠" : "🟡"} {tarefa.texto}
-              </span>
+              {editandoId === tarefa.id ? (
+              <>
+                <input
+                  value={textoEditado}
+                  onChange={(e) => setTextoEditado(e.target.value)}
+                  onKeyDown={(e) => {
+                      if (e.key === "Enter") salvarEdicao(tarefa.id)
+                    }}
+                />
+                <>
+                  <button onClick={() => salvarEdicao(tarefa.id)}>Salvar</button>
+                  <button onClick={() => setEditandoId(null)}>Cancelar</button>
+                </>              </>
+            ) : (
+              <>
+                <span style={{
+                  textDecoration: tarefa.concluida ? "line-through" : "none",
+                  opacity: tarefa.concluida ? "0.6" : "1"
+                }}>
+                  {tarefa.prioridade === "Alta" ? "🔴" : tarefa.prioridade === "Média" ? "🟠" : "🟡"} {tarefa.texto}
+                </span>
 
-              <button onClick={() => excluirTarefa(tarefa.id)}>❌</button>
-              <button onClick={() => concluirTarefa(tarefa.id)} disabled={tarefa.concluida}>✅</button>
-            </li>
+                <button onClick={() => excluirTarefa(tarefa.id)}>❌</button>
+                <button onClick={() => concluirTarefa(tarefa.id)} disabled={tarefa.concluida}>✅</button>
+                <button onClick={() => iniciarEdicao(tarefa)}>✏️</button>
+              </>
+            )}
+          </li>
           ))}
         </ul>
       </div>
