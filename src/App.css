@@ -263,6 +263,44 @@ select:hover {
     color: #34d399;
 }
 
+#login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-box {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: rgba(255,255,255,0.05);
+  border: 2px solid #7c3aed;
+  border-radius: 16px;
+  padding: 40px 30px;
+
+  box-shadow: 0 0 25px #7c3aed33;
+}
+
+#login-box h1 {
+  margin-bottom: 30px;
+}
+
+#sair {
+position: absolute;
+    top: 5px;
+    right: 20px;
+
+    background: #2d1b1b;
+    color: #f87171;
+    border-radius: 8px;
+    padding: 10px 18px;
+    border: none;
+    cursor: pointer;
+}
+
 /* 📱 Responsividade básica */
 @media (max-width: 768px) {
   body {
@@ -301,6 +339,7 @@ select:hover {
   }
 }
 
+
 /* 📱 Celulares menores ainda */
 @media (max-width: 480px) {
   h1 {
@@ -329,4 +368,12 @@ select:hover {
   #botoes-formulario button {
     width: 100%;
   }
+
+  #sair {
+    position: absolute;
+    top: 5px;
+    right: 3%;
+    
+}
+
 }

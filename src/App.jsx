@@ -8,7 +8,7 @@ function App() {
   const [formularioAberto, setFormularioAberto] = useState(false)
   const [editandoId, setEditandoId] = useState(null)
   const [textoEditado, setTextoEditado] = useState("")
-
+  
   const [conquistas, setConquistas] = useState(() => {
     const salvo = localStorage.getItem("conquistas")
     return salvo ? JSON.parse(salvo) : [
@@ -16,6 +16,11 @@ function App() {
       { id: 1, nome: "Está muito fácil!", descricao: "Conclua 10 tarefas de prioridade Alta", desbloqueada: false, xpGanho: 500 },
       { id: 2, nome: "Aprendiz das tarefas", descricao: "Chegue ao nível 10", desbloqueada: false, xpGanho: 1000 },
     ]
+  })
+
+  const [login, setLogin] = useState(() => {
+    const loginSalvo = JSON.parse(localStorage.getItem("login"))
+    return loginSalvo ? JSON.parse(loginSalvo) : false
   })
 
   const [listaDeTarefas, setListaDeTarefas] = useState(() => {
@@ -153,6 +158,31 @@ function App() {
     setXp(novoXp + xpBonus)
   }
 
+if (!login) {
+  return (
+    <div id="login-container">
+      <div id="login-box">
+        <h1>Login</h1>
+
+        <input
+          placeholder="Seu nome"
+          id="input"
+        />
+
+        <button
+          id="criar_nova_tarefa"
+          onClick={() => {
+            setLogin(true)
+            localStorage.setItem("login", "true")
+          }}
+        >
+          Entrar
+        </button>
+      </div>
+    </div>
+  )
+}
+
   return (
     <div id="div-main">
       <div id="div-principal">
@@ -239,6 +269,14 @@ function App() {
           ))}
         </ul>
       </div>
+
+      <div>    
+        <button onClick={() => {
+          setLogin(false)
+          localStorage.setItem("login","false")
+        }} id="sair">Sair</button>
+      </div>
+
     </div>
   )
 }
