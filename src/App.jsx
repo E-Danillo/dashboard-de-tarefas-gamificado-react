@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import './App.css'
+import { Login } from './pages/Login'
 
 function App() {
 
@@ -160,26 +161,10 @@ function App() {
 
 if (!login) {
   return (
-    <div id="login-container">
-      <div id="login-box">
-        <h1>Login</h1>
-
-        <input
-          placeholder="Seu nome"
-          id="input"
-        />
-
-        <button
-          id="criar_nova_tarefa"
-          onClick={() => {
-            setLogin(true)
-            localStorage.setItem("login", "true")
-          }}
-        >
-          Entrar
-        </button>
-      </div>
-    </div>
+    <Login onLogin={() => {
+      setLogin(true)
+      localStorage.setItem("login", "true")
+    }} />
   )
 }
 
