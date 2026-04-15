@@ -1,10 +1,18 @@
+.icon {
+  width: 120px;     
+  height: auto;     /* evita distorcer */
+  margin: 0 auto 20px auto; /* centraliza e dá espaço embaixo */
+  opacity: 0.9;     
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  width: 100%;        /* ocupa a largura toda */
-  position: fixed;    /* sai do fluxo do body */
+  width: 100%;        
+  position: fixed;    
   top: 0;
   left: 0;
 }
