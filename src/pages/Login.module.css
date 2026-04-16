@@ -1,5 +1,18 @@
+.nomeDoSite {
+  margin-bottom: 20px;
+}
+
+.fraseImpacto {
+  text-align: center;       
+  margin-bottom: 20px;      
+  font-size: 1.2rem;       
+  font-weight: 600;        
+  color: #fff;             
+  text-shadow: 0 0 12px #a78bfa, 0 0 30px #7c3aed55;
+}
+
 .icon {
-  width: 120px;     
+  width: 100px;     
   height: auto;     /* evita distorcer */
   margin: 0 auto 20px auto; /* centraliza e dá espaço embaixo */
   opacity: 0.9;     
@@ -8,6 +21,7 @@
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -59,6 +73,14 @@
   width: 100%;
 }
 
+.footer {
+  position: fixed;
+  bottom: 16px;
+  color: #a78bfa;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
 /* tablet e celular médio */
 @media (max-width: 768px) { 
 
@@ -66,6 +88,10 @@
 
 /* celular pequeno */ 
 @media (max-width: 480px) { 
+  .fraseImpacto {
+    font-size: 1rem;
+  }
+
     .box {
         width: 80%;
     }
