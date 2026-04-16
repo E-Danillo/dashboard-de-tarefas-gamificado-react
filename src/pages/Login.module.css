@@ -87,40 +87,38 @@
 }
 
 /* celular pequeno */ 
-@media (max-width: 480px) { 
+@media (max-width: 480px) {
+  html, body {
+  height: 100%;
+  margin: 0;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    height: 100dvh; /* troca min-height por height */
+  
+    min-height: 100dvh; 
     width: 100%;
-
-    /* REMOVE isso */
-    /* position: fixed; */
-    /* top: 0; */
-    /* left: 0; */
   }
 
-  @media (max-width: 480px) {
-    .nomeDoSite {
-      margin-bottom: 10px;
-    }
+  .nomeDoSite {
+    margin-bottom: 10px;
+  }
 
-    .fraseImpacto {
-      margin-bottom: 10px;
-      font-size: 1rem;
-    }
+  .fraseImpacto {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
 
-    .icon {
-      width: 80px;
-      margin-bottom: 10px;
-    }
+  .icon {
+    width: 80px;
+    margin-bottom: 10px;
+  }
 
-    .box {
-      width: 85%;
-      padding: 25px 20px;
-    }
+  .box {
+    width: 85%;
+    padding: 25px 20px;
   }
 }
