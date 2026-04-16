@@ -89,16 +89,38 @@
 /* celular pequeno */ 
 @media (max-width: 480px) { 
   .container {
-    margin: 0;
-    overflow: hidden;
-    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100dvh; /* troca min-height por height */
+    width: 100%;
+
+    /* REMOVE isso */
+    /* position: fixed; */
+    /* top: 0; */
+    /* left: 0; */
   }
 
-  .fraseImpacto {
-    font-size: 1rem;
-  }
+  @media (max-width: 480px) {
+    .nomeDoSite {
+      margin-bottom: 10px;
+    }
+
+    .fraseImpacto {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .icon {
+      width: 80px;
+      margin-bottom: 10px;
+    }
 
     .box {
-        width: 80%;
+      width: 85%;
+      padding: 25px 20px;
     }
+  }
 }
