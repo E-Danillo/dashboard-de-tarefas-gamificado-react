@@ -11,7 +11,7 @@ export function Login({ onLogin }) {
       if (email === '' || senha === '') {
         alert('Preencha todos os campos')
         return
-      }
+      } 
       onLogin() // clica em Entrar → handleLogin valida → chama onLogin() → App seta login=true → dashboard
   }
 
