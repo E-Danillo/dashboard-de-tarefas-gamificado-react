@@ -15,9 +15,9 @@ body {
   padding: 48px 16px;
   font-family: 'Nunito', sans-serif;
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-background-repeat: no-repeat;     /* não repete */
-  background-size: cover;           /* cobre tudo */
-  background-attachment: fixed;     /* fica parado */
+  background-repeat: no-repeat;     
+  background-size: cover;           
+  background-attachment: fixed;     
   color: #f0eaff;
   gap: 40px;
 }
