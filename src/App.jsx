@@ -162,6 +162,7 @@ function App() {
 if (!login) {
   return (
     <Login onLogin={() => {
+      if (email === "" || senha === "")
       setLogin(true)
       localStorage.setItem("login", "true")
     }} />
