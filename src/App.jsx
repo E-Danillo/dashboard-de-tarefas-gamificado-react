@@ -20,7 +20,7 @@ function App() {
   })
 
   const [login, setLogin] = useState(() => {
-    const loginSalvo = JSON.parse(localStorage.getItem("login"))
+    const loginSalvo = localStorage.getItem("login")
     return loginSalvo ? JSON.parse(loginSalvo) : false
   })
 
@@ -159,14 +159,14 @@ function App() {
     setXp(novoXp + xpBonus)
   }
 
-if (!login) {
-  return (
-    <Login onLogin={() => {
-      setLogin(true)
-      localStorage.setItem("login", "true")
-    }} />
-  )
-}
+  if (!login) {
+    return (
+      <Login onLogin={() => {
+        setLogin(true)
+        localStorage.setItem("login", "true")
+      }} />
+    )
+  }
 
   return (
     <div id="div-main">

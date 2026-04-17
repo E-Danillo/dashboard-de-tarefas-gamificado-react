@@ -19,7 +19,7 @@ export function Login({ onLogin }) {
     <div className={styles.containerPrincipal}>
       <div className={styles.container}>
         <h1 className={styles.nomeDoSite}>KillTheDay</h1>
-        <p className={styles.fraseImpacto}>O dia te testa. Você responde vencendo.</p>
+        <p className={styles.fraseImpacto}>Cada tarefa é um inimigo. Elimine todos!</p>
           <div className={styles.box}>
             <img className={styles.icon} src={icon} alt="Logo do Dashboard Gamificado"/>
             <h2>Login</h2>
@@ -39,7 +39,12 @@ export function Login({ onLogin }) {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}/>
 
+            <label>
+              <input type="checkbox"/> Manter Conectado
+            </label>
             <button className={styles.button} onClick={handleLogin}>Entrar</button>
+
+            <p className={styles.pNormal}>Não tem uma conta? <a className={styles.link} href="">Cadastre-se</a></p>
           </div>
         <footer className={styles.footer}>
           © 2026 Emerson Danillo. Todos os direitos reservados.
