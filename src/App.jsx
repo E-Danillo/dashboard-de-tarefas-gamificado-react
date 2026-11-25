@@ -67,12 +67,14 @@ function App() {
     return { nivel, xpAcumulado }
   }
 
-  function adicionarTarefa() {
-    if (inputTexto === "") return
+function adicionarTarefa() {
+    const texto = inputTexto.trim()
+
+    if (texto === "") return
 
     const novaTarefa = {
       id: idTarefa,
-      texto: inputTexto,
+      texto: texto,
       concluida: false,
       prioridade: prioridade
     }
@@ -81,7 +83,7 @@ function App() {
     setIdTarefa(idTarefa + 1)
     setInputTexto("")
     setFormularioAberto(false)
-  }
+}
 
   function iniciarEdicao(tarefa) {
     setEditandoId(tarefa.id)
@@ -113,16 +115,18 @@ function App() {
     )
 
     let novoXp = xp
+    let novoTotalAltas = totalAltasConcluidas
 
     if (tarefa.prioridade === "Alta") {
       novoXp += 100
-      setTotalAltasConcluidas(prev => prev + 1) // 🔥 NOVO
+      novoTotalAltas += 1
+      setTotalAltasConcluidas(novoTotalAltas)
     }
     else if (tarefa.prioridade === "Média") novoXp += 50
     else novoXp += 25
 
     setListaDeTarefas(novaLista)
-    verificarConquistas(novaLista, novoXp)
+    verificarConquistas(novaLista, novoXp, novoTotalAltas)
   }
 
   function calcularPorcentagem() {
@@ -132,7 +136,7 @@ function App() {
     return (xpNoNivelAtual / xpNecessario) * 100
   }
 
-  function verificarConquistas(novaLista, novoXp) {
+  function verificarConquistas(novaLista, novoXp, novoTotalAltas) {
     const totalConcluidas = novaLista.filter(t => t.concluida).length
     const { nivel } = calcularNivel(novoXp)
 
@@ -145,7 +149,7 @@ function App() {
     }
 
     // 🔥 usa contador permanente
-    if (novasConquistas[1] && totalAltasConcluidas >= 10 && !novasConquistas[1].desbloqueada) {
+    if (novasConquistas[1] && novoTotalAltas >= 10 && !novasConquistas[1].desbloqueada) {
       novasConquistas[1] = { ...novasConquistas[1], desbloqueada: true }
       xpBonus += novasConquistas[1].xpGanho
     }
